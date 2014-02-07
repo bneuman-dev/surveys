@@ -12,7 +12,12 @@
 
   <nav>
     <div id='navigation'>
+        <% if current_user %>
+          <a href="/home" class='float_left'>Survey RedPanda</a>
+        <% else %>
           <a href="/" class='float_left'>Survey RedPanda</a>
+        <% end %>
+
         <% if current_user %>
           <a id="sign-out" href="/sessions/<%= current_user.id %>"  class='float_right'>Sign Out</a></li>
         <% else %>
