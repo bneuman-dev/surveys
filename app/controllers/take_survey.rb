@@ -29,6 +29,8 @@ get '/surveys/:survey_id' do
     #JQuery should probably check that ALL QUESTIONS ARE FILLED OUT
     #Display error messages if not
     #Steal from Thursday challenge to do this
+    @survey = Survey.find(params[:survey_id])
+    erb :take_survey_form
 end
 
 post '/surveys/:survey_id' do

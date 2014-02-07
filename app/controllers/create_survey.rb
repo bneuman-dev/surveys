@@ -58,5 +58,5 @@ post '/surveys/create' do
     #Maybe the survey results page
     #Maybe it goes to a really simple the survey link
     #Wherever it goes, MUST HAVE SURVEY LINK
-
+  redirect "/surveys/#{survey.id}/results"
 end
