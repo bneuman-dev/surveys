@@ -8,7 +8,7 @@
         <ul>
         <% question.possible_answers.each do |answer| %>
           <li>
-            <input type="radio" name="survey[<%=question.id%>]" value="<%=answer.id%>"/><%=answer.text%>
+            <input class="required" type="radio" name="survey[<%=question.id%>]" value="<%=answer.id%>"/><%=answer.text%>
           </li>
         <% end %>
         </ul>
@@ -17,3 +17,4 @@
   </ul>
   <input type="submit" value="Submit"/>
 </form>
+<script src="/js/take_survey.js"></script>

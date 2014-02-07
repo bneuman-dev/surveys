@@ -48,12 +48,15 @@ $(document).ready(function() {
 // }
 
 var check_form = function(){
+  var status = true;
+
   $('form .required').each(function(){
     if ((this).value===null || (this).value===""){
-      alert("You must fill out all title, question, and answer fields to submit your survey.");
-      return false;
+      status = false;
     }
   });
+  if (status ===false){alert("You must fill out all title, question, and answer fields to submit your survey.");}
+  return status;
 }
 
 //   var check_form = function(){
