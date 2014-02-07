@@ -1,0 +1,5 @@
+<h3>Responses for survey "<%= @survey.title%>" by user</h3>
+<br><br>
+<% @survey_responses.each do |response| %>
+  <p><a href='<%= "/user_responses/#{response.id}" %>'>Response by <%= response.user.name %></p>
+<% end %>

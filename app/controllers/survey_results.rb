@@ -28,6 +28,11 @@ get '/user_responses/:response_id' do
 
 end
 
+get '/surveys/:survey_id/responses' do
+  @survey = Survey.find(params[:survey_id])
+  @survey_responses = @survey.user_surveys
+  erb :survey_responses
+end
 
 #From survey results:
   #Feature: maybe for open-ended questions, just list all the answers given
@@ -43,17 +48,6 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-get '/surveys/:survey_id/responses' do
-
    #THIS FEATURE LOOKS LIKE WORK. Part of SurveyMonkey but not part of MVP
   #NOTE: WHEN WE SAY 'responses' here we mean 'user_surveys' in the models
 
@@ -67,9 +61,6 @@ get '/surveys/:survey_id/responses' do
       #Makes sense maybe for deleting spam/robots who take surveys
       #Maybe would use routes like
       #/surveys/:survey_id/responses/:response_id/delete
-end
-
-
   #THIS FEATURE LOOKS LIKE WORK. Part of SurveyMonkey but not part of MVP
 
   #This should list:
