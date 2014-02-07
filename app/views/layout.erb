@@ -11,20 +11,18 @@
 <body>
 
   <nav>
-
-    <div class="brand"><a href="/">Survey RedPanda</a></div>
-
-    <ul>
-      <% if current_user %>
-        <li><a id="sign-out" href="/sessions/<%= current_user.id %>">Sign Out</a></li>
-      <% else %>
-        <li><a href="/sessions/new">Sign In</a></li>
-        <li><a href="/users/new">Sign Up</a></li>
-      <% end %>
-    </ul>
-
+    <div id='navigation'>
+          <a href="/" class='float_left'>Survey RedPanda</a>
+        <% if current_user %>
+          <a id="sign-out" href="/sessions/<%= current_user.id %>"  class='float_right'>Sign Out</a></li>
+        <% else %>
+          <a href="/sessions/new" class='float_right'>Sign In</a>
+          <a href="/users/new" class='float_right'>Sign Up</a>
+        <% end %>
+    </div>
   </nav>
 
   <%= yield %>
+
 </body>
 </html>
