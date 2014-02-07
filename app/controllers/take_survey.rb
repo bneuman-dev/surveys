@@ -1,4 +1,6 @@
+require 'pry'
 get '/surveys/:survey_id' do
+  redirect '/' if session[:user_id] == nil
   #Must be logged in to take survey
     #Maybe redirect if not logged in
     #Maybe you can view but 'submit' button doesn't work
@@ -44,9 +46,17 @@ post '/surveys/:survey_id' do
     #Add entry to 'responses' with possible_answer_id and user_id
 
   #REDIRECT TO PAGE THANKING YOU AND ASKING FOR MONEY
+
+  user = User.find(session[:user_id])
+  params[:survey].each_pair do |question,answer|
+    Response.create(user_id: user.id, possible_answer_id: answer)
+  end
+  user.surveys_taken << Survey.find(params[:survey_id])
+  redirect ('/thank_you')
 end
 
 get '/thank_you' do
   #Thank you for taking the survey! Give us money.
   #Should include link to go back home.
+  erb :thank_you
 end
