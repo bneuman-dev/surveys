@@ -1,5 +1,5 @@
 get '/home' do
-  redirect to '/login' if session[:user_id].nil?
+  redirect to '/' if session[:user_id].nil?
   @user = User.find(session[:user_id])
 
   survey_records = @user.surveys
@@ -28,19 +28,20 @@ end
   #Edit button (maybe we will implement this, maybe not)
   #Maybe also include 'delete' button and 'clear out responses' button
 
+# Development purposes
 
-get '/cookie' do
-  session.inspect
-end
+# get '/cookie' do
+#   session.inspect
+# end
 
-get '/fake_login' do
-  session[:user_id] = "2"
-end
+# get '/fake_login' do
+#   session[:user_id] = "2"
+# end
 
-get '/fake_logout' do
-  session.delete(:user_id)
-end
+# get '/fake_logout' do
+#   session.delete(:user_id)
+# end
 
-get '/clear_cookie' do
-  session.clear
-end
+# get '/clear_cookie' do
+#   session.clear
+# end

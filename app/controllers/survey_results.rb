@@ -2,6 +2,9 @@
 get '/surveys/:survey_id/results' do
 
   @survey = Survey.find(params[:survey_id])
+
+  redirect '/' if @survey.creator_id != session[:user_id]
+
   @questions = @survey.questions
   @question_stats = @questions.map do |q|
     {question: q.question, stats: question_response_stats(q)}
@@ -16,6 +19,9 @@ get '/user_responses/:response_id' do
   user_survey = UserSurvey.find(params[:response_id])
   @user = user_survey.user
   @survey = user_survey.survey
+
+  redirect '/' if @survey.creator_id != session[:user_id]
+
   questions = @survey.questions
   @answers = questions.collect do |question|
     poss = question.possible_answer_ids
@@ -30,6 +36,9 @@ end
 
 get '/surveys/:survey_id/responses' do
   @survey = Survey.find(params[:survey_id])
+
+  redirect '/' if @survey.creator_id != session[:user_id]
+
   @survey_responses = @survey.user_surveys
   erb :survey_responses
 end

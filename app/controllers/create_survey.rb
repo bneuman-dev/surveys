@@ -1,5 +1,8 @@
 require 'pry'
 get '/surveys/new' do
+
+  redirect '/' if !session[:user_id]
+
   #Form with:
 
   #Title field -> name = title
@@ -33,7 +36,9 @@ get '/surveys/new' do
 end
 
 post '/surveys/create' do
+  user = User.find(session[:user_id])
   survey = Survey.create(title: params[:title], description: params[:description], pic_url: params[:pic_url])
+  user.surveys << survey
   params[:question].each_pair do |key, value|
     question = Question.create(question: value)
     survey.questions << question
