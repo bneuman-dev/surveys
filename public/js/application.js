@@ -1,7 +1,28 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+//create three initial fields
+  var startingNo = 1;
+  var $question = "";
+  for(questionCount=0;questionCount<startingNo;questionCount++){
+      var displayCount = questionCount+1;
+      $question += '<p><label for="question'+displayCount+'">Question '+displayCount+': </label><input type="text" name="question'+displayCount+'" id="question'+displayCount+'"><span class="removeQuestion">Remove Question</span><br><label for="answers'+displayCount+'">Answers: </label><textarea cols="37" rows="5" name="answers'+displayCount+'"></textarea></p>';
+  }
+//add them to the DOM
+  $('form').prepend($question);
+//remove a textfield
+  $('form').on('click', '.removeQuestion', function(){
+     $(this).parent().remove();
+
+  });
+  //add a new node
+  $('#addQuestion').on('click', function(){
+    questionCount++;
+    $question = '<p><label for="question'+questionCount+'">Question '+questionCount+': </label><input type="text" name="question'+questionCount+'" id="question'+questionCount+'"><span class="removeQuestion">Remove Question</span><br><label for="answers'+questionCount+'">Answers: </label><textarea cols="37" rows="5" name="answers'+questionCount+'"></textarea></p>';
+    $(this).parent().before($question);
+  });
+
+
+
+
 });
+
