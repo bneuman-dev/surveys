@@ -4,12 +4,23 @@
 
 <p>Surveys you created</p>
 
+<table>
+  <tr>
+    <td>Title</td>
+    <td>Number of responses</td>
+    <td>Results summary</td>
+  </tr>
 <% @surveys.each do |survey| %>
-  <img src='<%="#{survey["pic_url"]}"%>' />
+  <tr>
+    <td>
   <a href='<%= "/surveys/#{survey["id"]}" %>'><%=survey["title"]%></a>
-  Number of people who have taken the survey: <%= survey["count"] %><br>
-  Date created: <%= survey["created_at"] %><br>
-  Date updated: <%= survey["updated_at"] %><br>
-  <a href='<%="/surveys/#{survey["id"]}/results"%>'> Results summary </a><br><br><br><br>
+    </td>
+    <td>
+      <%= survey["count"] %>
+    </td>
+    <td>
+  <a href='<%="/surveys/#{survey["id"]}/results"%>'> Results summary </a>
+  </td>
+</tr>
 <%end%>
-
+</table>
