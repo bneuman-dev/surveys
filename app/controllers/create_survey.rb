@@ -1,3 +1,4 @@
+require 'pry'
 get '/surveys/new' do
   #Form with:
 
@@ -28,9 +29,23 @@ get '/surveys/new' do
   #We really should validate on the backend with :presence => true and stuff
   #Then we could redirect to error pages
   #However, that's extra work
+  erb :create_survey_form
 end
 
 post '/surveys/create' do
+
+  survey = Survey.create(title: params[:title], description: params[:description], pic_url: params[:pic_url])
+  params[:question].each_pair do |key, value|
+    question = Question.create(question: value)
+    survey.questions << question
+    answers = params[:answer][key].split("\n")
+    answers.each do |answer|
+      question.possible_answers << PossibleAnswer.create(text: answer)
+    end
+
+  end
+
+
   #Creates a new survey with title, description, pic_url from params
   #Also uses :user_id from session
 
@@ -43,5 +58,5 @@ post '/surveys/create' do
     #Maybe the survey results page
     #Maybe it goes to a really simple the survey link
     #Wherever it goes, MUST HAVE SURVEY LINK
-
+  redirect "/surveys/#{survey.id}/results"
 end
