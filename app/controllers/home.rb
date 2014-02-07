@@ -1,5 +1,7 @@
 get '/home' do
-  @user = User.find(2)
+  redirect to '/login' if session[:user_id].nil?
+  @user = User.find(session[:user_id])
+
   survey_records = @user.surveys
 
   @surveys = survey_records.collect do |s|
@@ -8,8 +10,6 @@ get '/home' do
     survey_hash["count"] = count
     survey_hash
   end
-
-  # @surveys.to_s
   erb :home
 end
 
@@ -23,19 +23,10 @@ end
   #Have 'create survey' button ->
     #LINKS TO '/surveys/new'
 
-  #See list of your surveys
-    #List of surveys includes basic info on each survey:
-      #Title (links to more detailed survey results)
-          #The link to more detailed survey results will send us to: /surveys/:survey_id/results
-      #Date created
-      #Number of people who have taken the survey
-      #Date modified
-      #Edit button (maybe we will implement this, maybe not)
-      #Maybe also include 'delete' button and 'clear out responses' button
 
-  #Look up user via session[:user_id]
-  #Then look up user's surveys in 'surveys' table
-  #Look up number of people who have taken the survey in 'user_surveys' table
+#Survey list maybes:
+  #Edit button (maybe we will implement this, maybe not)
+  #Maybe also include 'delete' button and 'clear out responses' button
 
 
 get '/cookie' do
@@ -43,7 +34,7 @@ get '/cookie' do
 end
 
 get '/fake_login' do
-  session[:user_id] = 2
+  session[:user_id] = "2"
 end
 
 get '/fake_logout' do

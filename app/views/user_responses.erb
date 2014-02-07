@@ -1,0 +1,17 @@
+<h2><%= @survey.title %></h2>
+<a href='<%= "/surveys/#{@survey.id}/results" %>'>Back to survey results</a>
+<p></p>
+<p></p>
+<p></p>
+Response by user <%= @user.email %>
+<p></p>
+<p></p>
+<p></p>
+<br><br><br>
+
+
+<% @answers.each do |answer| %>
+ <p> Question: <%= answer[:question] %> </p>
+ <p> Answer: <%= answer[:response] %> </p>
+ <br><br><br>
+<% end %>

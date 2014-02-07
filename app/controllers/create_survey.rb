@@ -33,7 +33,6 @@ get '/surveys/new' do
 end
 
 post '/surveys/create' do
-
   survey = Survey.create(title: params[:title], description: params[:description], pic_url: params[:pic_url])
   params[:question].each_pair do |key, value|
     question = Question.create(question: value)
