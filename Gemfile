@@ -16,8 +16,12 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'bcrypt-ruby'
+<<<<<<< HEAD
 gem 'faker'
 
+=======
+gem 'pry'
+>>>>>>> b11f4171f542ddc3d28fb8e1fda117c278ff285e
 gem 'shotgun'
 
 group :test do

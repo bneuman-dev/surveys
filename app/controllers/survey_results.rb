@@ -7,7 +7,6 @@ get '/surveys/:survey_id/results' do
     #A graphical representation of the table
     #Feature: maybe for open-ended questions, just list all the answers given
 
-  #For survey:
     #Look up all questions with survey_id
     #For each question:
       #Look up all possible_answers with question_id
@@ -15,7 +14,46 @@ get '/surveys/:survey_id/results' do
 
   #MAYBE FEATURE: Links to 'individual responses', which chunks responses by user ->
     #sends us to /surveys/:survey_id/responses
+
+  @survey = Survey.find(params[:survey_id])
+  @questions = @survey.questions
+  @question_stats = @questions.map do |q|
+    {question: q.question, stats: question_response_stats(q)}
+  end
+
+ @question_stats
+ # @question_stats.each do |qs|
+ #  Question: qs[:question]
+ #    qs[:stats].each do |s|
+ #      Answer: s[:answer]
+ #      Count: s[:count]
+ #    end
+ #  end
+
+ erb :survey_results
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 get '/surveys/:survey_id/responses' do
    #THIS FEATURE LOOKS LIKE WORK. Part of SurveyMonkey but not part of MVP

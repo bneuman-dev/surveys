@@ -1,8 +1,25 @@
 get '/home' do
+  @user = User.find(2)
+  survey_records = @user.surveys
+
+  @surveys = survey_records.collect do |s|
+    count = UserSurvey.where(survey_id: s.id).count
+    survey_hash = s.attributes
+    survey_hash["count"] = count
+    survey_hash
+  end
+
+  # @surveys.to_s
+  erb :home
+end
+
+
+
+
+
+
   #IF NOT LOGGED IN:
-    #Redirect to '/login'
-
-
+    #Redirect to '/login
   #Have 'create survey' button ->
     #LINKS TO '/surveys/new'
 
@@ -19,4 +36,20 @@ get '/home' do
   #Look up user via session[:user_id]
   #Then look up user's surveys in 'surveys' table
   #Look up number of people who have taken the survey in 'user_surveys' table
+
+
+get '/cookie' do
+  session.inspect
+end
+
+get '/fake_login' do
+  session[:user_id] = 2
+end
+
+get '/fake_logout' do
+  session.delete(:user_id)
+end
+
+get '/clear_cookie' do
+  session.clear
 end
