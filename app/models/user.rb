@@ -1,8 +1,11 @@
+
+
 class User < ActiveRecord::Base
   # Remember to create a migration!
   has_many :user_surveys
-  has_many :surveys, through: :user_surveys
-  has_many :surveys, :foreign_key => 'creator_id'
+  # has_many :surveys, through: :user_surveys
+  has_many :surveys_taken2, through: :user_surveys, source: :survey
+  has_many :surveys, foreign_key: 'creator_id'
 
   # Signup/Signin Validaitons
   attr_reader :entered_password
@@ -12,7 +15,7 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => true, :format => /.+@.+\..+/
 
   def surveys_taken
-    user_surveys.map{|surveys_taken|Survey.find(surveys_taken.survey_id)}
+    user_surveys.map{|survey_taken| survey_taken.survey }
   end
 
   # Login methods
