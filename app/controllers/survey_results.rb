@@ -17,6 +17,28 @@ get '/surveys/:survey_id/results' do
     #sends us to /surveys/:survey_id/responses
 end
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 get '/surveys/:survey_id/responses' do
    #THIS FEATURE LOOKS LIKE WORK. Part of SurveyMonkey but not part of MVP
   #NOTE: WHEN WE SAY 'responses' here we mean 'user_surveys' in the models

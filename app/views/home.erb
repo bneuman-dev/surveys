@@ -1,0 +1,15 @@
+<h1>Profile</h1>
+
+<a href="/survey/new">Create Survey!</a>
+
+<p>Surveys you created</p>
+
+<% @surveys.each do |survey| %>
+  <img src='<%="#{survey["pic_url"]}"%>' />
+  <a href='<%= "/survey/#{survey["id"]}" %>'><%=survey["title"]%></a>
+  Number of people who have taken the survey: <%= survey["count"] %>
+  Date created: <%= survey["created_at"] %>
+  Date updated: <%= survey["updated_at"] %>
+  <a href='<%="/survey/#{survey["id"]}/results"%>'> Results summary </a>
+<%end%>
+
