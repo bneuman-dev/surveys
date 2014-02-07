@@ -1,6 +1,5 @@
 require 'pry'
 get '/surveys/:survey_id' do
-  session[:user_id] = 3
   redirect '/' if session[:user_id] == nil
   #Must be logged in to take survey
     #Maybe redirect if not logged in
