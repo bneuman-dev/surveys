@@ -1,4 +1,4 @@
-<form method="post" action="/surveys/create">
+<form method="post" name="create" action="/surveys/create">
   <ul>
     <li>
       <input type="text" name="title" placeholder="Title" class="required">
@@ -10,8 +10,8 @@
       <input type="text" name="pic_url" placeholder="Picture URL">
     </li>
   </ul>
+  <p>Please type each possible answer on a new line.</p>
   <div class="question">
-    <p>Please type each possible answer on a new line.</p>
     <p>
       <button id="addQuestion">Add Question</button>
     </p>
@@ -20,3 +20,4 @@
     </p>
   </div>
 </form>
+<script src="/js/create_survey.js"></script>
