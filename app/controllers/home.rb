@@ -1,5 +1,5 @@
 get '/home' do
-  @user = User.find(1)
+  @user = User.find(2)
   survey_records = @user.surveys
 
   @surveys = survey_records.collect do |s|
@@ -43,7 +43,7 @@ get '/cookie' do
 end
 
 get '/fake_login' do
-  session[:user_id] = 1
+  session[:user_id] = 2
 end
 
 get '/fake_logout' do
