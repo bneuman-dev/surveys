@@ -1,0 +1,10 @@
+<img src='<%="#{@survey.pic_url}"%>' />
+<a href='<%= "/surveys/#{@survey.id}" %>'><%=@survey.title%></a>
+
+ <% @question_stats.each do |qs| %>
+  Question: <%= qs[:question] %> <br>
+    <% qs[:stats].each do |s| %>
+      Answer: <%=s[:answer] %><br>
+      Count: <%= s[:count] %><br>
+    <%end%><br><br>
+  <%end%>
