@@ -16,3 +16,16 @@ user = User.create!(name:"user1", email: "email@email.com", password: 'password'
     end
   end
 end
+
+Survey.all.each do |s|
+  5.times do
+    user = User.find(rand(1..10))
+    user.surveys_taken << s
+    s.questions.each do |q|
+      poss_answers = q.possible_answers
+      choice = rand(0..(q.possible_answers.count - 1))
+      answer = poss_answers[choice]
+      Response.create(user: user, possible_answer: answer)
+    end
+  end
+end
