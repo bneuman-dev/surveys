@@ -8,6 +8,6 @@ class Response < ActiveRecord::Base
 
   def survey_taken_already
     survey_id = possible_answer.question.survey.id
-    errors[:base] << "The survey has already been taken, dude." if User.find(user_id).surveys_taken.exists?(survey_id)
+    errors[:base] << "The survey has already been taken." if User.find(user_id).surveys_taken.exists?(survey_id)
   end
 end
