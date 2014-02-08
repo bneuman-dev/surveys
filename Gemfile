@@ -20,6 +20,7 @@ gem 'faker'
 
 gem 'pry'
 gem 'shotgun'
+gem 'mini_magick'
 
 group :test do
   gem 'faker'

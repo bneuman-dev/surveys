@@ -38,6 +38,7 @@ end
 post '/surveys/create' do
   user = User.find(session[:user_id])
   survey = Survey.create(title: params[:title], description: params[:description], pic_url: params[:pic_url])
+  survey.resize_pic
   user.surveys << survey
   params[:question].each_pair do |key, value|
     question = Question.create(question: value)
