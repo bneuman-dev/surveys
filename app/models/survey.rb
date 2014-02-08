@@ -6,4 +6,13 @@ class Survey < ActiveRecord::Base
   has_many :survey_takers, through: :user_surveys, source: :user
   has_many :questions
   validates :title, :presence => true
+
+  def resized_pic
+    image = MiniMagick::Image.open(pic_url)
+    image.resize "200x200"
+    image.format "jpg"
+    filepath = APP_ROOT.join('public','tmp',self.id.to_s + '.jpg')
+    image.write filepath
+    return "/tmp/#{self.id}.jpg"
+  end
 end
