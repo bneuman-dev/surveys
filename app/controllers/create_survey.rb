@@ -42,7 +42,7 @@ post '/surveys/create' do
   params[:question].each_pair do |key, value|
     question = Question.create(question: value)
     survey.questions << question
-    answers = params[:answer][key].split("\n")
+    answers = params[:answer][key].gsub(/\r/,"").split("\n")
     answers.each do |answer|
       question.possible_answers << PossibleAnswer.create(text: answer)
     end
