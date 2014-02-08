@@ -1,4 +1,4 @@
-<a href=<%=@survey.pic_url%>><img src='<%=@survey.resized_pic%>' /></a>
+<a href=<%=@survey.pic_url%>><img src='/survey_pic/<%=@survey.id%>.jpg' /></a>
 <a href='<%= "/surveys/#{@survey.id}" %>'><%=@survey.title%></a><br><br><br>
  <% @question_stats.each do |qs| %>
   Question: <%= qs[:question] %> <br><br>

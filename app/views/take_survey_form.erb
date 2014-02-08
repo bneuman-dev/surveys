@@ -1,4 +1,5 @@
 <h2><%=@survey.title%></h2>
+<a href=<%=@survey.pic_url%>><img src='/survey_pic/<%=@survey.id%>.jpg' /></a>
 <h3><%=@survey.description%></h3>
 <h3 id = "survey_taken"><%="You have already taken this survey" if @user.surveys_taken.exists?(@survey.id)%><h3>
 <form method="post" action = "/surveys/<%=@survey.id%>">
