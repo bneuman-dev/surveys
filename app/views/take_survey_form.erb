@@ -7,7 +7,7 @@
     <li>
       <label for="<%=question.id%>"><%=question.question%></label>
         <ul>
-        <% question.possible_answers.each do |answer| %>
+        <% question.possible_answers.order('id').each do |answer| %>
           <li>
             <input class="required" type="radio" name="survey[<%=question.id%>]" value="<%=answer.id%>"/><%=answer.text%>
           </li>
