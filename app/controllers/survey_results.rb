@@ -5,7 +5,7 @@ get '/surveys/:survey_id/results' do
 
   redirect '/' if @survey.creator_id != session[:user_id]
 
-  @questions = @survey.questions
+  @questions = @survey.questions.order('id')
   @question_stats = @questions.map do |q|
     {question: q.question, stats: question_response_stats(q)}
   end
