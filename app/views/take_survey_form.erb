@@ -1,8 +1,8 @@
 <h2><%=@survey.title%></h2>
 <h3><%=@survey.description%></h3>
 <form method="post" action = "/surveys/<%=@survey.id%>">
-  <ul>
-    <% @survey.questions.each do |question| %>
+  <ol>
+    <% @survey.questions.order('id').each do |question| %>
     <li>
       <label for="<%=question.id%>"><%=question.question%></label>
         <ul>
@@ -14,7 +14,7 @@
         </ul>
     </li>
     <% end %>
-  </ul>
+  </ol>
   <input type="submit" value="Submit"/>
 </form>
 <script src="/js/take_survey.js"></script>
