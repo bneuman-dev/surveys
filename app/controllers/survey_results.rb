@@ -15,7 +15,6 @@ get '/surveys/:survey_id/results' do
  erb :survey_results
 end
 
-
 #See a given user's responses to a survey
 get '/user_responses/:response_id' do
   user_survey = UserSurvey.find(params[:response_id])

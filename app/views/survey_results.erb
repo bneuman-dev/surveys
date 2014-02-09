@@ -5,6 +5,7 @@
     <img src='<%="#{@survey.pic_url}"%>' /><br><br>
     <a href='<%= "/surveys/#{@survey.id}" %>'><h3><%=@survey.title%></a></h3><br>
     <a href='<%= "/surveys/#{@survey.id}/responses" %>'>View list of users who have taken the survey</a><br><br><br>
+    <a href='<%= "/surveys/#{@survey.id}/results/graph" %>'>View graph of survey results</a><br><br><br>
   </div>
 
   <div class="stat_summary"> 
