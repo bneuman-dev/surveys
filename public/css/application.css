@@ -305,3 +305,16 @@ form ul li {
 }
 
 
+
+
+/* ------- RESULTS GRAPHS ---- */
+
+.question_graph {
+  margin: 5% 0; 
+}
+
+.graph_percent {
+  height: 50px;
+  background-color: blue;
+  margin: 2% 0 4% 0;
+}
