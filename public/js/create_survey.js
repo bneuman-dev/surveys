@@ -5,7 +5,7 @@ $(document).ready(function() {
   var $question = "";
   for(questionCount=0;questionCount<startingNo;questionCount++){
       var displayCount = questionCount+1;
-      $question += '<p><label for="question'+displayCount+'">Question '+displayCount+': </label><input type="text" name="question['+displayCount+']" id="question'+displayCount+'" class="required"><button class="removeQuestion">Remove Question</button><br><label for="answers'+displayCount+'">Answers: </label><textarea cols="37" rows="5" name="answer['+displayCount+']" class="required"></textarea></p>';
+      $question += '<p><label for="question'+displayCount+'">Question '+displayCount+': <br> </label><input type="text" size="50" name="question['+displayCount+']" id="question'+displayCount+'" class="required"><button class="removeQuestion">Remove Question</button><br><label for="answers'+displayCount+'">Answers: </label><textarea cols="50" rows="5" name="answer['+displayCount+']" class="required"></textarea></p>';
   }
 //add them to the DOM
   $('.question').prepend($question);
@@ -19,7 +19,7 @@ $(document).ready(function() {
   $('#addQuestion').on('click', function(e){
     e.preventDefault();
     questionCount++;
-    $question = '<p><label for="question'+questionCount+'">Question '+questionCount+': </label><input type="text" name="question['+questionCount+']" id="question'+questionCount+'" class="required"><button class="removeQuestion">Remove Question</button><br><label for="answers'+questionCount+'">Answers: </label><textarea cols="37" rows="5" name="answer['+questionCount+']" class="required"></textarea></p>';
+    $question = '<p><label for="question'+questionCount+'">Question '+questionCount+': <br> </label><input type="text" size="50" name="question['+questionCount+']" id="question'+questionCount+'" class="required"><button class="removeQuestion">Remove Question</button><br><label for="answers'+questionCount+'">Answers: </label><textarea cols="50" rows="5" name="answer['+questionCount+']" class="required"></textarea></p>';
     $(this).parent().before($question);
   });
 
