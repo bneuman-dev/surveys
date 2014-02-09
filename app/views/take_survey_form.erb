@@ -16,11 +16,12 @@
           <ul>
           <% question.possible_answers.order('id').each do |answer| %>
             <li>
-              <input class="required" type="radio" name="survey[<%=question.id%>]" value="<%=answer.id%>"/><%=answer.text%>
+              <input class="required" type="radio" name="survey[<%=question.id%>]" value="<%=answer.id%>"/> <%=answer.text%>
             </li>
           <% end %>
           </ul>
         </li>
+        <br>
         <% end %>
       </ol>
       <input id="submit" type="submit" value="Submit"/>

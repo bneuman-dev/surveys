@@ -78,17 +78,42 @@ form{
   box-shadow: 0px 0px 8px 0px #000000;
 }
 
+form ul li {
+	list-style: none;
+}
+
 img {
 	width: 20%;
 	height: 20%;
 }
-/* -------------- CONTAINER -------------- */
+
+table {
+	width: 100%;
+}
+
+table a {
+	text-decoration: none;
+}
+
+tr:first-child {
+	font-weight: bold;
+	margin-bottom: 10px;
+	border-bottom: thin solid grey;
+}
+
+tr:nth-child(odd) {
+	background-color: #d9eaf2
+}
+tr:nth-child(even) {
+ background-color: #d9f2e1;
+}
+
+/* ----------------- CONTAINER ------------------ */
 div .container {
     position: relative;
     margin-left: auto;
     margin-right: auto;
     width: 65%;
-    /*outline: thin solid red;*/
 }
 
 /* --------------- NAVIGATION BAR ------------------*/
@@ -167,7 +192,6 @@ nav {
 
 .head {
 	text-align: center;
-	/*font-size: xx-large;*/
 }
 
 .head a {
@@ -176,51 +200,22 @@ nav {
 }
 #new_survey_button {
 	float: right;
-	padding: 20px;
-	width: 150px;
 	text-align: center;
 	background-color: #aee3be;
 	border-radius: 25px;
 	font-size: medium;
-	/*outline: thin solid red;*/
 }
 
 #new_survey_button a {
-	/*font-weight: 600;*/
+	display: block;
 	color: #164123;
+	padding: 20px;
+	width: 150px;
 }
 
 .overview {
 	margin-top: 100px;
 	text-align: center;
-	/*position: relative;*/
-	/*outline: thin solid red;*/
-}
-
-table {
-	width: 100%;
-	/*outline: thin solid blue;*/
-	/*outline-style-radius: 25%;*/
-}
-table a {
-	text-decoration: none;
-}
-
-tr:first-child {
-	/*width: 30%;*/
-	font-weight: bold;
-	margin-bottom: 10px;
-	border-bottom: thin solid grey;
-	/*background-color: #ffd99b;*/
-	/*outline: thin solid blue;*/
-	/*margin-bottom: 100px;*/
-}
-
-tr:nth-child(odd) {
-	background-color: #d9eaf2
-}
-tr:nth-child(even) {
- background-color: #d9f2e1;
 }
 
 
@@ -232,26 +227,21 @@ tr:nth-child(even) {
 	margin-bottom: 5%;
 }
 
-
 /* ------- SURVEY RESULT ------ */
 
 .stat_summary table{
 	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
-	/*text-align: center;*/
 }
 .stat_summary td:first-child {
 	float: left;
-	/*outline: thin solid blue;*/
-	/*text-align: center;*/
 }
 
 .stat_summary td:last-child {
 	float: right;
 	text-align: center;
 	width: 100px;
-	/*outline: thin solid blue;*/
 }
 
 
@@ -262,14 +252,11 @@ tr:nth-child(even) {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 1% 3% 5% 2%;
+	margin-bottom: 50px;
 }
 
 .take_survey #submit {
 	float: right;
-}
-
-form ul li {
-	list-style: none;
 }
 
 #highlight {
@@ -304,9 +291,6 @@ form ul li {
 	margin-right: auto;
 }
 
-
-
-
 /* ------- RESULTS GRAPHS ---- */
 
 .question_graph {
@@ -314,7 +298,7 @@ form ul li {
 }
 
 .graph_percent {
-  height: 50px;
-  background-color: blue;
-  margin: 2% 0 4% 0;
+  height: 25px;
+  background-color: #b4a0df;
+  margin: 1% 0 4% 0;
 }
