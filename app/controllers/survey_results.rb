@@ -1,4 +1,5 @@
 
+#see results summary for a given survey
 get '/surveys/:survey_id/results' do
 
   @survey = Survey.find(params[:survey_id])
@@ -15,6 +16,7 @@ get '/surveys/:survey_id/results' do
 end
 
 
+#See a given user's responses to a survey
 get '/user_responses/:response_id' do
   user_survey = UserSurvey.find(params[:response_id])
   @user = user_survey.user
@@ -34,6 +36,8 @@ get '/user_responses/:response_id' do
 
 end
 
+#see a list of users who responded to a survey
+#each entry links to a page to view that user's responses to the survey
 get '/surveys/:survey_id/responses' do
   @survey = Survey.find(params[:survey_id])
 
@@ -42,48 +46,3 @@ get '/surveys/:survey_id/responses' do
   @survey_responses = @survey.user_surveys
   erb :survey_responses
 end
-
-#From survey results:
-  #Feature: maybe for open-ended questions, just list all the answers given
-  #MAYBE FEATURE: Links to 'individual responses', which chunks responses by user ->
-    #sends us to /surveys/:survey_id/responses
-  #REALLY MAYBE FEATURE: #A graphical representation of the table
-
-
-
-
-
-
-
-
-
-   #THIS FEATURE LOOKS LIKE WORK. Part of SurveyMonkey but not part of MVP
-  #NOTE: WHEN WE SAY 'responses' here we mean 'user_surveys' in the models
-
-  #Lists all the users who have taken the survey by:
-  #Looking up everything in user_surveys with survey_id
-
-  #Each entry in the list will take us to ->
-    #/surveys/:survey_id/responses/:response_id
-
-    #MAYBE FEATURE: Ability  to edit and delete each response
-      #Makes sense maybe for deleting spam/robots who take surveys
-      #Maybe would use routes like
-      #/surveys/:survey_id/responses/:response_id/delete
-  #THIS FEATURE LOOKS LIKE WORK. Part of SurveyMonkey but not part of MVP
-
-  #This should list:
-    #Basic user info
-    #Time survey taken
-    #List of every question and the response given
-
-  #We know survey_id via user_surveys
-  #From survey_id, we know all the question_ids
-  #For each question_id:
-    #Look up all the possible_answers corresponding to that question
-    #Find which entry in 'responses' table has the user_id of the
-    #survey-taker and has one of the possible_answers in that list
-
-  #We can look this up by:
-    #Looking up
-# end

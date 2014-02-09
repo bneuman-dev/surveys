@@ -1,3 +1,6 @@
+#Profile page: see basic info on the surveys you have created 
+#with link to more detailed results
+
 get '/home' do
   redirect to '/' if session[:user_id].nil?
   @user = User.find(session[:user_id])
@@ -12,36 +15,3 @@ get '/home' do
   end
   erb :home
 end
-
-
-
-
-
-
-  #IF NOT LOGGED IN:
-    #Redirect to '/login
-  #Have 'create survey' button ->
-    #LINKS TO '/surveys/new'
-
-
-#Survey list maybes:
-  #Edit button (maybe we will implement this, maybe not)
-  #Maybe also include 'delete' button and 'clear out responses' button
-
-# Development purposes
-
-# get '/cookie' do
-#   session.inspect
-# end
-
-# get '/fake_login' do
-#   session[:user_id] = "2"
-# end
-
-# get '/fake_logout' do
-#   session.delete(:user_id)
-# end
-
-# get '/clear_cookie' do
-#   session.clear
-# end
