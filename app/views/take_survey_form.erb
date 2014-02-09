@@ -1,7 +1,7 @@
 <div class="container">
   
   <div class="head">
-
+    <img src='<%="#{@survey.pic_url}"%>' /><br><br>
     <h2><%=@survey.title%></h2>
     <h3><%=@survey.description%></h3>
     <h3 id = "survey_taken"><%="You have already taken this survey" if @user.surveys_taken.exists?(@survey.id)%><h3>

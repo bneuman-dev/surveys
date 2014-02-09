@@ -272,10 +272,36 @@ form ul li {
 	list-style: none;
 }
 
+#highlight {
+	font-weight: bold;
+	color: #371cff;
+}
+
+#question{
+	padding-left: 20px;
+	font-weight: bold;
+	color: #118300;
+}
+
+#answer{
+	padding-left: 20px;
+	font-weight: bold;
+	color: #371cff;
+}
+
+.indv_resp table {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 
-
-
-
+/* -------- SURVEY RESPONSES ---- */
+.list_respondents table {
+	text-align: center;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 
