@@ -1,22 +1,33 @@
-<img src='<%="#{@survey.pic_url}"%>' />
-<a href='<%= "/surveys/#{@survey.id}" %>'><%=@survey.title%></a><br><br><br>
- <% @question_stats.each do |qs| %>
-  Question: <%= qs[:question] %> <br><br>
-  <table id="survey_results">
-    <tr>
-      <td>Answer</td>
-      <td>Count</td>
-    </tr>
-    <% qs[:stats].each do |s| %>
-    <tr>
-      <td>
-        <%=s[:answer] %>
-      </td>
-      <td>
-        <%= s[:count] %>
-      </td>
-    </tr>
+<div class="container">
+
+  <div class="head">
+    <h1>Summary</h1>
+    <img src='<%="#{@survey.pic_url}"%>' /><br><br>
+    <a href='<%= "/surveys/#{@survey.id}" %>'><h3><%=@survey.title%></a></h3><br><br><br>
+  </div>
+
+  <div class="stat_summary"> 
+    <% @question_stats.each do |qs| %>
+    Question: <%= qs[:question] %> <br><br>
+
+    <table id="survey_results">
+      <tr>
+        <td>Answer</td>
+        <td>Count</td>
+      </tr>
+      <% qs[:stats].each do |s| %>
+      <tr>
+        <td>
+          <%=s[:answer] %>
+        </td>
+        <td>
+          <%= s[:count] %>
+        </td>
+      </tr>
+      <%end%>
+    </table>
+
+    <br><br>
     <%end%>
-  </table>
-  <br><br>
-  <%end%>
+  </div>
+</div>

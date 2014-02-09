@@ -1,31 +1,32 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700,900);
 
+
 body {
   background-color: #f2f2f2;
-    font-family: "Lato";
-    font-weight: 300;
-    font-size: 16px;
-    color: #555;
-    padding: 0;
-    margin: 0;
-
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
-
-    margin-top: 70px;
+  font-family: "Lato";
+  font-weight: 300;
+  font-size: 16px;
+  color: #555;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 70px;
+  font-weight: 500;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway";
-    font-weight: 300;
+    font-weight: 600;
     color: #333;
 }
-
 
 p {
     line-height: 28px;
     margin-bottom: 25px;
+    font-weight: 500;
 }
 
 .centered {
@@ -35,6 +36,7 @@ p {
 a {
     color: #f85c37;
     word-wrap: break-word;
+    font-weight: 500;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
     -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -59,7 +61,7 @@ a:after {
     transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
- hr {
+hr {
     display: block;
     height: 1px;
     border: 0;
@@ -68,8 +70,30 @@ a:after {
     padding: 0;
 }
 
-#navigation {
-    position: fixed;
+form{
+	margin: auto;
+	padding: 10px;
+	-webkit-box-shadow: 0px 0px 8px 0px #000000;
+  -moz-box-shadow: 0px 0px 8px 0px #000000;
+  box-shadow: 0px 0px 8px 0px #000000;
+}
+
+img {
+	width: 20%;
+	height: 20%;
+}
+/* -------------- CONTAINER -------------- */
+div .container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    /*outline: thin solid red;*/
+}
+
+/* --------------- NAVIGATION BAR ------------------*/
+nav {
+    position: absolute;
     top: 0;
     width: 100%;
     height: 35px;
@@ -84,6 +108,12 @@ a:after {
     color: rgba(1, 1, 1, 0.8);
 }
 
+#navigation {
+	width: 70%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 #navigation a {
     font-size: 14px;
     padding-left: 15px;
@@ -96,10 +126,6 @@ a:after {
     color: grey;
 }
 
-#index_title {
-    text-align: center;
-}
-
 .float_left {
     float: left;
 }
@@ -107,5 +133,149 @@ a:after {
 .float_right {
     float: right;
 }
+
+
+/* ---- SIGN-UP / SIGN-IN ---- */
+
+.login{
+	text-align: center;
+}
+
+.login form{
+	width: 275px;
+}
+
+.login label {
+	float: left;
+}
+
+.login input {
+	float: right;
+}
+
+.login .submit {
+	float: right;
+}
+
+.errors {
+	color: red;
+	list-style: none;
+}
+
+
+/* ----- PROFILE ----- */
+
+.head {
+	text-align: center;
+	/*font-size: xx-large;*/
+}
+
+.head a {
+	text-decoration: none;
+	font-weight: 600;
+}
+#new_survey_button {
+	float: right;
+	padding: 20px;
+	width: 150px;
+	text-align: center;
+	background-color: #aee3be;
+	border-radius: 25px;
+	font-size: medium;
+	/*outline: thin solid red;*/
+}
+
+#new_survey_button a {
+	/*font-weight: 600;*/
+	color: #164123;
+}
+
+.overview {
+	margin-top: 100px;
+	text-align: center;
+	/*position: relative;*/
+	/*outline: thin solid red;*/
+}
+
+table {
+	width: 100%;
+	/*outline: thin solid blue;*/
+	/*outline-style-radius: 25%;*/
+}
+table a {
+	text-decoration: none;
+}
+
+tr:first-child {
+	/*width: 30%;*/
+	font-weight: bold;
+	margin-bottom: 10px;
+	border-bottom: thin solid grey;
+	/*background-color: #ffd99b;*/
+	/*outline: thin solid blue;*/
+	/*margin-bottom: 100px;*/
+}
+
+tr:nth-child(odd) {
+	background-color: #d9eaf2
+}
+tr:nth-child(even) {
+ background-color: #d9f2e1;
+}
+
+
+/* ------- CREATE SURVEY ------ */
+
+.survey_form form {
+	width: 40%;
+	padding: 4% 10% 2% 5%;
+	margin-bottom: 5%;
+}
+
+
+/* ------- SURVEY RESULT ------ */
+
+.stat_summary table{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	/*text-align: center;*/
+}
+.stat_summary td:first-child {
+	float: left;
+	/*outline: thin solid blue;*/
+	/*text-align: center;*/
+}
+
+.stat_summary td:last-child {
+	float: right;
+	text-align: center;
+	width: 100px;
+	/*outline: thin solid blue;*/
+}
+
+
+/* ------ TAKE SURVEY ------- */
+
+.take_survey form {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1% 3% 5% 2%;
+}
+
+.take_survey #submit {
+	float: right;
+}
+
+form ul li {
+	list-style: none;
+}
+
+
+
+
+
+
 
 
