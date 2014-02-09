@@ -1,17 +1,25 @@
-<h2><%= @survey.title %></h2>
-<a href='<%= "/surveys/#{@survey.id}/results" %>'>Back to survey results</a>
-<p></p>
-<p></p>
-<p></p>
-Response by user <%= @user.email %>
-<p></p>
-<p></p>
-<p></p>
-<br><br><br>
+<div class="container">
 
+	<div class="head">
+		<h1>Individual Response</h1>
+		<h2><%= @survey.title %></h2>
+		<!-- <a href='<%= "/surveys/#{@survey.id}/results" %>'>Back to survey results</a> -->
+	
+		<br><br><br><br>
+		Response by user: <span id="highlight"><%= @user.name %></span>
+		<br><br>
+	</div>
 
-<% @answers.each do |answer| %>
- <p> Question: <%= answer[:question] %> </p>
- <p> Answer: <%= answer[:response] %> </p>
- <br><br><br>
-<% end %>
+	<div class="indv_resp">
+		<% @answers.each do |answer| %>
+		<table>
+		<!-- <td> -->
+			<td>Question: <span id="question"><%= answer[:question] %></span></tr>
+			<td>Answer: <span id="answer"><%= answer[:response] %></span></tr>
+		<!-- </td> -->
+		</table>
+		 
+		<br><br><br>
+		<% end %>
+	</div>
+</div>

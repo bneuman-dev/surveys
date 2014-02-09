@@ -1,5 +1,18 @@
-<h3>Responses for survey "<%= @survey.title%>" by user</h3>
-<br><br>
-<% @survey_responses.each do |response| %>
-  <p><a href='<%= "/user_responses/#{response.id}" %>'>Response by <%= response.user.name %></p>
-<% end %>
+<div class="container">
+	<div class="head">
+		<h3>List of users who have responded to survey: 
+			<a href='<%= "/surveys/#{@survey.id}/results" %>'>"<%= @survey.title%>"</h3>
+	</div>
+
+	<div class="list_respondents">	
+		<br><br>
+		<table>
+			<!-- <tr> -->
+			<td>List of Respondents</tr>
+		<% @survey_responses.each do |response| %>
+		  <td><a href='<%= "/user_responses/#{response.id}" %>'>Response by <%= response.user.name %></tr>
+		<% end %>
+		<!-- </tr> -->
+		</table>
+	</div>
+</div>
