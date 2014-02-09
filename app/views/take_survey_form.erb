@@ -1,8 +1,10 @@
 <div class="container">
   
   <div class="head">
+
     <h2><%=@survey.title%></h2>
     <h3><%=@survey.description%></h3>
+    <h3 id = "survey_taken"><%="You have already taken this survey" if @user.surveys_taken.exists?(@survey.id)%><h3>
   </div>
 
   <div class="take_survey">
@@ -11,14 +13,13 @@
         <% @survey.questions.order('id').each do |question| %>
         <li>
           <label for="<%=question.id%>"><%=question.question%></label>
-            <ul>
-            <% question.possible_answers.each do |answer| %>
-              <li>
-                <input class="required" type="radio" name="survey[<%=question.id%>]" value="<%=answer.id%>"/>  <%=answer.text%>
-              </li>
-            <% end %>
-            </ul>
-            <br>
+          <ul>
+          <% question.possible_answers.order('id').each do |answer| %>
+            <li>
+              <input class="required" type="radio" name="survey[<%=question.id%>]" value="<%=answer.id%>"/><%=answer.text%>
+            </li>
+          <% end %>
+          </ul>
         </li>
         <% end %>
       </ol>
