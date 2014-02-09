@@ -1,6 +1,6 @@
 require 'faker'
 
-# # create a few users
+# create a few users
 # user = User.create!(name:"user1", email: "email@email.com", password: 'password')
 
 # 10.times do

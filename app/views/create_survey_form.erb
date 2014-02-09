@@ -1,23 +1,27 @@
-<form method="post" name="create" action="/surveys/create">
-  <ul>
-    <li>
-      <input type="text" name="title" placeholder="Title" class="required">
-    </li>
-    <li>
-      <textarea cols="30" rows="5" name="description" placeholder="Description"></textarea>
-    </li>
-    <li>
-      <input type="text" name="pic_url" placeholder="Picture URL">
-    </li>
-  </ul>
-  <p>Please type each possible answer on a new line.</p>
-  <div class="question">
-    <p>
-      <button id="addQuestion">Add Question</button>
-    </p>
-    <p>
-      <input type="submit" value="Submit">
-    </p>
+<div class="container">
+  
+  <div class="head">
+    <h1>Create survey!</h1>
   </div>
-</form>
-<script src="/js/create_survey.js"></script>
+
+  <div class="survey_form">
+    <form method="post" name="create" action="/surveys/create">
+      Title: <br>
+      <input type="text" name="title" size="50" placeholder="Title" class="required"><br><br>
+      Description: <br>
+      <textarea cols="50" rows="5" name="description" placeholder="Description"></textarea><br><br>
+      Picture URL: <br>
+      <input type="text" name="pic_url" size="50" placeholder="Picture URL"><br><br>
+      <p>Please type each possible answer on a new line.</p>
+      <div class="question">
+        <p>
+          <button id="addQuestion">Add Question</button>
+        </p>
+        <p>
+          <input type="submit" value="Submit">
+        </p>
+      </div>
+    </form>
+    <script src="/js/create_survey.js"></script>
+  </div>
+</div>

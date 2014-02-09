@@ -1,21 +1,30 @@
-<h2><%=@survey.title%></h2>
-<h3><%=@survey.description%></h3>
-<h3 id = "survey_taken"><%="You have already taken this survey" if @user.surveys_taken.exists?(@survey.id)%><h3>
-<form method="post" action = "/surveys/<%=@survey.id%>">
-  <ol>
-    <% @survey.questions.order('id').each do |question| %>
-    <li>
-      <label for="<%=question.id%>"><%=question.question%></label>
-        <ul>
-        <% question.possible_answers.order('id').each do |answer| %>
-          <li>
-            <input class="required" type="radio" name="survey[<%=question.id%>]" value="<%=answer.id%>"/><%=answer.text%>
-          </li>
+<div class="container">
+  
+  <div class="head">
+
+    <h2><%=@survey.title%></h2>
+    <h3><%=@survey.description%></h3>
+    <h3 id = "survey_taken"><%="You have already taken this survey" if @user.surveys_taken.exists?(@survey.id)%><h3>
+  </div>
+
+  <div class="take_survey">
+    <form method="post" action = "/surveys/<%=@survey.id%>">
+      <ol>
+        <% @survey.questions.order('id').each do |question| %>
+        <li>
+          <label for="<%=question.id%>"><%=question.question%></label>
+          <ul>
+          <% question.possible_answers.order('id').each do |answer| %>
+            <li>
+              <input class="required" type="radio" name="survey[<%=question.id%>]" value="<%=answer.id%>"/><%=answer.text%>
+            </li>
+          <% end %>
+          </ul>
+        </li>
         <% end %>
-        </ul>
-    </li>
-    <% end %>
-  </ol>
-  <input type="submit" value="Submit"/>
-</form>
-<script src="/js/take_survey.js"></script>
+      </ol>
+      <input id="submit" type="submit" value="Submit"/>
+    </form>
+    <script src="/js/take_survey.js"></script>
+  </div>
+</div>

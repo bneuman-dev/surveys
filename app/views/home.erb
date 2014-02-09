@@ -1,26 +1,48 @@
-<h1>Profile</h1>
+<div class="container">
 
-<a href="/surveys/new">Create Survey!</a>
+  <div class="head">
+    <h1><%= @user.name %>'s profile </h1>
+    <div id="new_survey_button">
+      <a href="/surveys/new">Create new survey</a>
+    </div>
+  </div>
+ 
+  <div class="overview">
+    <!-- <h4>Surveys you created</h4><br> -->
+    <br><br>
+    <table>
+      <tr id="first_row">
+        <td>Title</td>
+        <td>Number of responses</td>
+        <td>Summary</td>
+      </tr>
+    <% @surveys.each do |survey| %>
+      <tr>
+        <td>
+          <a href='<%= "/surveys/#{survey["id"]}" %>'><%=survey["title"]%></a>
+        </td>
 
-<p>Surveys you created</p>
+        <td>
+          <%= survey["count"] %>
+        </td>
 
-<table>
-  <tr>
-    <td>Title</td>
-    <td>Number of responses</td>
-    <td>Results summary</td>
-  </tr>
-<% @surveys.each do |survey| %>
-  <tr>
-    <td>
-  <a href='<%= "/surveys/#{survey["id"]}" %>'><%=survey["title"]%></a>
-    </td>
-    <td>
-      <%= survey["count"] %>
-    </td>
-    <td>
-  <a href='<%="/surveys/#{survey["id"]}/results"%>'> Results summary </a>
-  </td>
-</tr>
-<%end%>
-</table>
+        <td>
+          <a href='<%="/surveys/#{survey["id"]}/results"%>'>Summary</a>
+        </td>
+
+      </tr>
+    <%end%>
+    </table>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
