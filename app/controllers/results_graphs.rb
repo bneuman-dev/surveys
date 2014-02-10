@@ -4,8 +4,8 @@ get '/surveys/:survey_id/results/graph' do
   @questions = @survey.questions
   @stats = @questions.collect do |question|
     {question: question, 
-    stats: stats_with_percentages(question)}
+    stats: question_response_stats(question)}
   end
 
-  erb :d3
+  erb :graph
 end
