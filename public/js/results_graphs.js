@@ -60,15 +60,20 @@ $(document).ready( function () {
         .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
 
     bars.append("rect")
-        .attr("width", function(d) { return x(d); })
         .attr("height", barHeight - 1)
-        .attr("fill", function(d, i) { return color(i); });
+        .attr("fill", function(d, i) { return color(i); })
+        .attr("width",0)
+        .transition()
+        .duration(1000)
+        .attr("width", function(d) { return x(d); });
 
     bars.append("text")
         .attr("x", function(d) { return x(d) - 3; })
         .attr("y", barHeight / 2)
         .attr("dy", ".35em")
         .attr("text-anchor", "end")
-        .text(function(d) {if(d>0){return d}; });
+        .transition()
+        .delay(1000)
+        .text(function(d) {if(d > 0){return d}; });
   });
 });
