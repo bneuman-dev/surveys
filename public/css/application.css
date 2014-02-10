@@ -310,3 +310,11 @@ nav {
 .graph svg text {
   font: 16px sans-serif;
 }
+
+.data{
+  display: none;
+}
+
+.graph svg text {
+  font: 16px sans-serif;
+}

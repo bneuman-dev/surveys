@@ -70,6 +70,5 @@ $(document).ready( function () {
         .attr("dy", ".35em")
         .attr("text-anchor", "end")
         .text(function(d) {if(d>0){return d}; });
-
   });
 });
