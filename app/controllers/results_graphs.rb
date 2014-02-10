@@ -7,5 +7,5 @@ get '/surveys/:survey_id/results/graph' do
     stats: stats_with_percentages(question)}
   end
 
-  erb :results_graphs
+  erb :d3
 end
