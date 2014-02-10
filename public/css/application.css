@@ -302,3 +302,11 @@ nav {
   background-color: #b4a0df;
   margin: 1% 0 4% 0;
 }
+
+.data{
+  display: none;
+}
+
+.graph svg text {
+  font: 16px sans-serif;
+}
