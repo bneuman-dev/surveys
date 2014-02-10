@@ -69,7 +69,7 @@ $(document).ready( function () {
         .attr("y", barHeight / 2)
         .attr("dy", ".35em")
         .attr("text-anchor", "end")
-        .text(function(d) { return d; });
+        .text(function(d) {if(d>0){return d}; });
 
   });
 });
